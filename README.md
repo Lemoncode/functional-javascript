@@ -16,10 +16,10 @@ Functional programming based on JavaScript language
 
 ### Basics
 
-* Recursion
 * Curry
 * Composition
 * Partial Application
+* Recursion
 
 ### Libraries
 
