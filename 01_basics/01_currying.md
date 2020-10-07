@@ -65,15 +65,15 @@ Pre cargamos una función con varios argumentos de entrada devolviendo una funci
 El _currying_ es fantástico a la hora de generar nuevas funciones simplemente con el paso parcial de arumentos. Además nos proporciona un mecanismo para poder aplicar funciones que sólo operan en un elemento en una colección de elementos.
 
 ```js
-const toUpper = (s) => s.toUpperCase();
-const allWordsToUpper = map(toUpper);
+const toUpperCase = (s) => s.toUpperCase();
+const allWordsToUpper = map(toUpperCase);
 ```
 
 Dar a una función menos argumentos de los que espera, es lo que típicamente se llama **aplicación parcial**. La aplicaión parcial nos puede ayudar a eliminar boiler plate en nustro código.
 
 ```js
-const toUpper = (s) => s.toUpperCase();
-const allWordsToUpper = words => map(words, toUpper);
+const toUpperCase = (s) => s.toUpperCase();
+const allWordsToUpper = words => map(words, toUpperCase);
 ```
 
 Podemos ver que generar funciones que operen directamente sobre los arrays (las podríamos hacer) empieza a tener menos sentido, ya que _map_ nos proporciona la herramienta para invocar _inline_. Una función que devuelve otra función es lo que se conoce como una __HOF__ (High Order Function).

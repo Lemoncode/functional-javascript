@@ -25,3 +25,8 @@ Functional programming based on JavaScript language
 
 * Lodash/fp
 * Rambda
+
+### References
+
+> https://mostly-adequate.gitbooks.io/mostly-adequate-guide/content/
+> Elixir in Action, Second Edition: Sasa Juric 
