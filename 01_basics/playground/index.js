@@ -5,9 +5,24 @@ const replace = curry((what, replacement, s) => s.replace(what, replacement));
 const filter = curry((f, xs) => xs.filter(f));
 const map = curry((f, xs) => xs.map(f));
 
-
+// --------------Ejemplos Curry-------------------------------
 match(/j/g, 'hola jamon'); // ['j']
 const hasLetterJ = match(/j/g); // x => x.match(/j/g);
 hasLetterJ('hola jamon'); // ['j']
 
-filter(hasLetterJ, ['me gusta el jamon', 'prefiero un limon']); // ['']
+filter(hasLetterJ, ['me gusta el jamon', 'prefiero un limon']); // [''me gusta el jamon']
+const removeNoJs = filter(hasLetterJ); // xs => xs.filter(x => x.match(/j/g);)
+removeNoJs(['me gusta el jamon', 'prefiero un limon', 'judías con tomate']); // 'me gusta el jamon', 'judías con tomate'
+
+const noVowels = replace(/[aeiou]/ig);
+const censored = noVowels('*');
+censored('el gato hace miau'); // *l g*t* h*c* m***
+
+
+const toUpper = (s) => s.toUpperCase();
+const allWordsToUpper = map(toUpper);
+// --------------Ejemplos Curry-------------------------------
+
+
+// --------------Ejemplos Composing---------------------------
+// --------------Ejemplos Composing---------------------------
