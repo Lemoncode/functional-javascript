@@ -1,9 +1,16 @@
-const { curry, compose } = require('../../utils/operators');
-
-const match = curry((what, s) => s.match(what));
-const replace = curry((what, replacement, s) => s.replace(what, replacement));
-const filter = curry((f, xs) => xs.filter(f));
-const map = curry((f, xs) => xs.map(f));
+const { 
+    curry, 
+    compose, 
+    trace, 
+    map, 
+    match, 
+    replace, 
+    filter, 
+    split,
+    toUpperCase,
+    toLowerCase,
+    intercalate
+} = require('../../utils/operators');
 
 // --------------Ejemplos Curry-------------------------------
 match(/j/g, 'hola jamon'); // ['j']
@@ -19,7 +26,7 @@ const censored = noVowels('*');
 censored('el gato hace miau'); // *l g*t* h*c* m***
 
 
-const toUpperCase = (s) => s.toUpperCase();
+// const toUpperCase = (s) => s.toUpperCase();
 const allWordsToUpper = map(toUpperCase);
 // --------------Ejemplos Curry-------------------------------
 
@@ -39,4 +46,35 @@ const t = compose(toUpperCase, compose(head, reverse))(['melon', 'banana', 'manz
 const s = compose(compose(toUpperCase, head), reverse)(['melon', 'banana', 'manzana']);
 console.log(t);
 console.log(s);
+
+// Debugging
+const append = curry((what, s) => `${s}${what}`);
+const angry = compose(append('!'), toUpperCase);
+// const latin = compose(map, angry, reverse);
+// latin(['frog', 'eyes']);
+const latin = compose(map(angry), reverse);
+console.log(latin(['frog', 'eyes']));
+
+// const instercalate = curry((what, xs) => xs.join(what));
+// const dasherize = compose(
+//     intercalate('-'),
+//     toLowerCase,
+//     split(' '),
+//     replace(/\s{2,}/ig, ' '),
+// );
+
+// dasherize('The    world is a    vampire');
+const dasherize = compose(
+    intercalate('-'),
+    map(toLowerCase),
+    trace('after split'),
+    split(' '),
+    replace(/\s{2,}/ig, ' '),
+);
+
+dasherize('The    world is a    vampire');
+// Debugging
+
+
+
 // --------------Ejemplos Composing---------------------------

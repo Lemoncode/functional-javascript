@@ -111,3 +111,210 @@ const loudLastUpper = compose(angry, last);
 ```
 
 Aquí no hay respuestas erroneas o correctas, lo que si es que debemos buscar composiciones que enfaticen la reusabilidad. 
+
+### Pointfree
+
+Significa usar funciones que no 'nombren' sus operadores (el data con que se alimentan). Para poder desarrollar este estilo de programacion:
+
+* Las funciones deben ser ciudadanas de primer orden.
+* Currying 
+* Composition
+
+```js
+// no point free because we mention the data
+const snakeCase = word => word.toLowerCase().replace(/\s+/ig, '_');
+
+// pointfree
+const snakeCase = compose(replace(/\s+/ig, '_'), toLowerCase);
+
+// Example implementation
+const replace = curry((what, replaceWith, data) => data.replace(what, replaceWith));
+const toLowerCase = (x) => x.toLowerCase(); 
+
+const snakeCase = compose(replace(/\s+/ig, '_'), toLowerCase);
+console.log(snakeCase('Hola Pepino'));
+```
+
+Lo que estamos haciendo es mediante invocación parcial, es asegurar que nuestras funciones sean invocadas sólo con un argumento de entrada. El _curry_ nos permite preparar cada función, para tomar sólo un argumento de entrada y pasarlo a la sifuiente función.
+
+## Ejercicio 1. Jugando con Point Free. 
+
+Dada una variable que almacene un nombre con apellidos, devuelva las iniciales en mayúscula y separadas por un punto:
+
+```js
+const name = 'jaime salas zanzada';
+initials(name); // J. S. Z.
+```
+
+### Solución
+
+```js
+const { map, compose, head, toUpperCase, split, intercalate } = require('../utils/operators');
+
+// ## Ejercicio 1. Jugando con Point Free. 
+const name = 'jaime salas zancada'
+
+const splitted = split(' ');
+console.log(splitted(name)); // ['jaime', 'salas', 'zancada'];
+
+const wordInitial = compose(toUpperCase, head);
+console.log(wordInitial('jaime')); // [J]
+```
+
+Ahora nuestro problema es como podemos hacer para que una función que opera sólo sobre un string de argumento de entrada, lo haga sobre una colección en su lugar
+
+```diff
+const { map, compose, head, toUpperCase, split, intercalate } = require('../utils/operators');
+
+// ## Ejercicio 1. Jugando con Point Free. 
+const name = 'jaime salas zancada'
+
+const splitted = split(' ');
+console.log(splitted(name));
+
+const wordInitial = compose(toUpperCase, head);
+console.log(wordInitial('jaime'));
+
++const initials = compose(map(compose(toUpperCase, head)), split(' '));
++console.log(initials(name));
+```
+
+Ya solo queda invocar una función, que tome una colección de strings y las unifiqueen una sólo string, separada por un punto.
+
+```diff
+const { map, compose, head, toUpperCase, split, intercalate } = require('../utils/operators');
+
+// ## Ejercicio 1. Jugando con Point Free. 
+const name = 'jaime salas zancada'
+
+-const splitted = split(' ');
+-console.log(splitted(name));
+
+-const wordInitial = compose(toUpperCase, head);
+-console.log(wordInitial('jaime'));
+
+-const initials = compose(map(compose(toUpperCase, head)), split(' '));
++const initials = compose(intercalate('. '), map(compose(toUpperCase, head)), split(' '));
+console.log(initials(name));
+```
+
+### A tener en cuenta sobre Pointfree
+
+Nos ayuda a quitar nombres inecesarion y mantener nuestro código conciso y genérico. Nos obliga tener funciones más pequeñas que componen funciones más complejas. Se puede convertir en un arma de doble filo, ya que podemos llegar a ofuscar nuestro código. Está bien que no todo el código sea `pointfree`.
+
+## Debugging
+
+Un error comun es componer algo que no espere los argumentos deseados, debido a que no hemos aplicacalo los argumentos parcialmente de forma adecuada
+
+```javascript
+const append = curry((what, s) => `${s}${what}`);
+const angry = compose(append('!'), toUpperCase);
+
+const latin = compose(map, angry, reverse); // We're feeding angry with an array
+latin(['frog', 'eyes']); // Throws exception  
+
+const latin = compose(map(angry), reverse);
+latin(['frog', 'eyes']); // ['EYES!', 'FROG!']
+```
+
+Para ahorrarnos penas con la composición podemos recorrir a la siguiente función:
+
+```js
+const trace = curry((tag, x) => {
+  console.log(tag, x);
+  return x;
+});
+```
+
+```js
+//NOTE: const t = replace(/\s{2,}/ig, ' ')('The      world  is  a vampire');
+/* returns  'The world is a vampire'*/ 
+const intercalate = curry((what, xs) => xs.join(what));
+
+const dasherize = compose(
+  intercalate('-'),
+  toLowerCase,
+  split(' '),
+  replace(/\s{2,}/ig, ' '),
+);
+
+dasherize('The world     is a     vampire'); // exports.toLowerCase = x => x.toLowerCase();
+```
+
+After trace
+
+```js
+const dasherize = compose(
+    intercalate('-'),
+    toLowerCase,
+    trace('after split'), 
+    split(' '),
+    replace(/\s{2,}/ig, ' '),
+);
+
+dasherize('The    world is a    vampire'); // after split [ 'The', 'world', 'is', 'a', 'vampire' ]
+```
+
+Podemos comprobar que el problema es cómo estammos alimentando `toLowerCase`, esto lo podemos fácilmente solucionar
+
+```js
+const dasherize = compose(
+    intercalate('-'),
+    map(toLowerCase),
+    trace('after split'),
+    split(' '),
+    replace(/\s{2,}/ig, ' '),
+);
+
+dasherize('The    world is a    vampire'); // 'the-world-is-a-vampire'
+```
+
+## Ejercicios
+
+En cada uno de los siguientes ejercicios, consideraremos los objectos Book de la siguiente forma:
+
+```js
+{
+    title: 'El Señor de las Moscas',
+    sold_units: 100000,
+    price: 12.00,
+    in_stock: true,
+}
+```
+
+1. Usar `compose()` para reescribir la siguiente función
+
+```js
+// isLastInStock :: [Book] -> Boolean
+isLastInStock = (books) => {
+    const lastBook = last(books);
+    return prop('in_stock', lastBook);
+}
+```
+
+2. Considerando la siguiente función:
+
+```js
+const avarage = xs => reduce(add, 0, xs) / xs.length;
+```
+
+Usar la función `avarage` para refactorizar `avarageSoldUnits` como composición:
+
+```js
+// avarageSoldUnits :: [Book] -> Int
+const avarageSoldUnits = (books) => {
+  const soldUnits = map(c => c.sold_units, books);
+  return average(soldUnits);
+};
+```
+
+3. Refactor `bestPrice` usando `compose()` y otras funciones en estilo `pointfree`.
+
+```js
+// bestSold :: [Book] -> String
+const bestPrice = (books) => {
+    const sorted = sortBy(book => book.price, books);
+    const cheap = last(sorted);
+    return concat(cheap.title, ' is the more cheap');
+};
+```
