@@ -7,4 +7,5 @@ typings/
 compile_css
 .cache
 
+playground.js
 todo

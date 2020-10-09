@@ -47,16 +47,17 @@ La primera función depende de una variable que puede mutar, depende del estado 
 > Un _side effect_ es un cambio del estado del sistema o una interacción observable con el mundo exterior que ocurre durante el cálculo de un resultado.
 
 * Ejemplos de _side effects_
-    - Un cambio en el sistema de ficheros
-    - Actualizar un registro en base de datos
-    - Una llamada http
-    - Mutar 
-    - console.log
-    - recuperar una entrada del usuario
-    - buscar elementos en el DOM
-    - acceder al estado global de un sistema
+    - Un cambio en el sistema de ficheros.
+    - Actualizar un registro en base de datos.
+    - Una llamada http.
+    - Mutar. 
+    - Invocar _console.log_.
+    - Usar _Matth.random_ o _Date.now_.
+    - Recuperar una entrada del usuario.
+    - Buscar elementos en el DOM.
+    - Acceder al estado global de un sistema.
 
-Cualquier interacción con el mundo exterior fuera de una función es un _side effect_. La filosofía de la programación funcional nos dice que los side effects son la primera cause de un funcionamiento erroneo.
+Cualquier interacción con el mundo exterior fuera de una función es un _side effect_. La filosofía de la programación funcional nos dice que los side effects son la primera causa de un funcionamiento erróneo.
 
 Una función es simplemente la relación entre dos valores: la entrada y la salida:
 
@@ -80,9 +81,9 @@ const memoize = require('../utils/memoize');
 const multiplyByTwo = memoize(x => x * 2);
 
 console.log(multiplyByTwo(2)); // 4
-console.log(multiplyByTwo(2)); // 4, returns memo
+console.log(multiplyByTwo(2)); // 4, returns from cache
 console.log(multiplyByTwo(5)); // 10
-console.log(multiplyByTwo(5)); // 10, returns memo
+console.log(multiplyByTwo(5)); // 10, returns from cache
 ```
 
 #### Portables
@@ -111,7 +112,7 @@ Las funciones puras son mucho más fáciles de testear.
 
 #### Razonables
 
-__Transparencia Referencial__. Un punto de nuetsro código es transparente referencialmente cuando puede ser substituido por su valor evaluado sin cambiar el comportamiento del programa.
+__Transparencia Referencial__. Un punto de nuestro código es transparente referencialmente, cuando puede ser substituido por su valor evaluado, sin cambiar el comportamiento del programa.
 
 Como las funciones puras no tienen _side effects_, sólo pueden influenciar el comportamiento del programa a través de sus valores de salida.
 
