@@ -41,5 +41,5 @@ const getUsers = () => state.users;
 
 ### Una breve nota acerca de JavaScript
 
-JavaScript no es un lenguaje puramente funcional, pero, las funciones pueden ser tratadas cómo cualquier otro tipo de dato, no hay nada especial en ellas. Las podemos almacenar en arrays, pasarlas como argumentos de otras funciones, asignarlas a variables...
+JavaScript no es un lenguaje puramente funcional, pero, las funciones pueden ser tratadas como cualquier otro tipo de dato, no hay nada especial en ellas. Las podemos almacenar en arrays, pasarlas como argumentos de otras funciones, asignarlas a variables...
 
