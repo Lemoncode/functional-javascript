@@ -6,3 +6,6 @@ typings/
 .idea/
 compile_css
 .cache
+
+playground.js
+todo
