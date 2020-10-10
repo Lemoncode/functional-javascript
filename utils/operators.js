@@ -44,9 +44,12 @@ exports.head = xs => xs[0];
 
 exports.reverse = (xs) => xs.reduce((acc, x) => [x].concat(acc), []);
 
-exports.append = this.curry((what, s) => `${s}${what}`); 
+exports.append = this.curry((what, s) => `${what}${s}`); 
 
 exports.last = xs => xs[xs.length - 1];
 
 exports.prop = this.curry((field, obj) => obj[field]); 
 
+exports.add = this.curry((x, y) => x + y);
+
+exports.concat = this.curry((what, s) => `${what}${s}`);
