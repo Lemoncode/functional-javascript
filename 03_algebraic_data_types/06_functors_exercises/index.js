@@ -158,7 +158,6 @@ const validateUser = curry((validate, user) => validate(user).map(_ => user));
 // save :: User -> IO User
 const save = user => new IO(() => ({ ...user, saved: true }));
 
-
 const maybeUser = compose(prop('name'), Maybe.of);
 
 const validateName = (user) => {
