@@ -1,6 +1,5 @@
 ## Conceptos
 
-
 ### Código que muta
 
 El estado y los valores mutables son difíciles de seguir. El problema reside en que nos lleva en ocasiones a código impredecible, este código impredecible al ser difícil de razonar, es difícil de desarrollar.
