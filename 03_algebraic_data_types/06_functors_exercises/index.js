@@ -1,4 +1,5 @@
-const { add, compose, map, prop, head, append } = require('./utils');
+const { inspect } = require('util');
+const { add, compose, map, prop, head, append, curry, trace, } = require('./utils');
 
 // Exercise 1
 //  Use `add` and `map` to a make a function that increments a value inside a functor
@@ -59,7 +60,7 @@ const initial = compose(map(head), safeProp('name'));
 
 const s = initial(user);
 
-console.log(s.inspect());
+// console.log(s.inspect());
 
 // Exercise 3
 // Write a function that uses `checkActive` and `showWelcome` to grant access or return an error.
@@ -75,6 +76,14 @@ class Either {
 }
 
 class Right extends Either {
+    get isLeft() {
+        return false;
+    }
+
+    get isRight() {
+        return true;
+    }
+
     map(f) {
         return Either.of(f(this.$value));
     }
@@ -85,6 +94,14 @@ class Right extends Either {
 }
 
 class Left extends Either {
+    get isLeft() {
+        return true;
+    }
+
+    get isRight() {
+        return false;
+    }
+
     map(f) {
         return this;
     }
@@ -109,7 +126,7 @@ const _usr = { ...user, active: false };
 
 const w = eitherWelcome(_usr);
 
-console.log(w.inspect());
+// console.log(w.inspect());
 
 // Exercise 4
 
@@ -140,32 +157,27 @@ class IO {
 }
 
 // Note: Use either to resolve this exercise
-
-/*
 // either :: (a -> c) -> (b -> c) -> Either a b -> c
 const either = curry((f, g, e) => {
-  if (e.isLeft) {
-    return f(e.$value);
-  }
 
-  return g(e.$value);
-});
-*/
+    if (e.isLeft) {
+      return f(e.$value);
+    }
+  
+    return g(e.$value);
+  });
 
-// validateUser :: (User -> Either String ()) -> User -> Either String User
-const validateUser = curry((validate, user) => validate(user).map(_ => user));
-
+const validateName = ({ name }) => (
+    name.length >= 3 ? Either.of(null) : left('not long enough')
+);
 // save :: User -> IO User
-const save = user => new IO(() => ({ ...user, saved: true }));
+const save = user => new IO({ ...user, saved: true });
 
-const maybeUser = compose(prop('name'), Maybe.of);
+const register = compose(
+    either(IO.of, save),
+    trace('validate output'),
+    validateName,
+);
 
-const validateName = (user) => {
-    if (maybeUser(user).isNothing) {
-        return left('not valid user props')
-    }
-
-    if (!maybeUser(user).isNothing) {
-        return user.name.length > 3 ? Either.of(user) : left('user name too short');
-    }
-};
+const x = register({name: 'jai'});
+console.log(x);

@@ -22,7 +22,7 @@ console.log(shout('go functional'));
 
 La composición de dos funciones devuelve una nueva función.
 
-En nuestar definición de _compose_, la función _g_ se ejecutará antes que _f_, generando un flujo de derecha a izquierda de los datos. Una vez que nos acostumbremos a `compose`, se hace más legible que el anidamiento de funciones.
+En nuestra definición de _compose_, la función _g_ se ejecutará antes que _f_, generando un flujo de derecha a izquierda de los datos. Una vez que nos acostumbremos a `compose`, se hace más legible que el anidamiento de funciones.
 
 ```js
 const shout = x => exclaim(toUpperCase(x));
@@ -91,7 +91,7 @@ lastUpper(arg); // 'UPPERCUT'
 loudLastUpper(arg); // 'UPPERCUT!'
 ```
 
-Un beneficio de la _propiedad asociativa_ es que cualquier grupo de funciones puede ser extarido y `empaquetado` en su propia composición:
+Un beneficio de la _propiedad asociativa_ es que cualquier grupo de funciones puede ser extraido y `empaquetado` en su propia composición:
 
 ```js
 const loudLastUpper = compose(exclaim, toUpperCase, head, reverse);
@@ -179,7 +179,7 @@ console.log(wordInitial('jaime'));
 +console.log(initials(name));
 ```
 
-Ya solo queda invocar una función, que tome una colección de strings y las unifiqueen una sólo string, separada por un punto.
+Ya solo queda invocar una función, que tome una colección de strings y las unifique en una sólo string, separada por un punto.
 
 ```diff
 const { map, compose, head, toUpperCase, split, intercalate } = require('../utils/operators');
@@ -200,11 +200,11 @@ console.log(initials(name));
 
 ### A tener en cuenta sobre Pointfree
 
-Nos ayuda a quitar nombres inecesarion y mantener nuestro código conciso y genérico. Nos obliga tener funciones más pequeñas que componen funciones más complejas. Se puede convertir en un arma de doble filo, ya que podemos llegar a ofuscar nuestro código. Está bien que no todo el código sea `pointfree`.
+Nos ayuda a quitar nombres innecesarios y mantener nuestro código conciso y genérico. Nos obliga a tener funciones más pequeñas que componen funciones más complejas. Se puede convertir en un arma de doble filo, ya que podemos llegar a ofuscar nuestro código. Está bien que no todo el código sea `pointfree`.
 
 ## Debugging
 
-Un error comun es componer algo que no espere los argumentos deseados, debido a que no hemos aplicacalo los argumentos parcialmente de forma adecuada
+Un error común es componer algo que no espere los argumentos deseados, debido a que no hemos aplicacado los argumentos, parcialmente, de forma adecuada.
 
 ```javascript
 const append = curry((what, s) => `${s}${what}`);
@@ -217,7 +217,7 @@ const latin = compose(map(angry), reverse);
 latin(['frog', 'eyes']); // ['EYES!', 'FROG!']
 ```
 
-Para ahorrarnos penas con la composición podemos recorrir a la siguiente función:
+Para ahorrarnos penas con la composición podemos recurrir a la siguiente función:
 
 ```js
 const trace = curry((tag, x) => {

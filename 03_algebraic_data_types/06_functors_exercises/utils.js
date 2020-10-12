@@ -28,3 +28,8 @@ exports.append = this.curry((s, sub) => `${s}${sub}`);
 
 // prepend :: String -> String -> String
 exports.prepend = this.curry((s, sub) => `${sub}${s}`);
+
+exports.trace = this.curry((tag, x) => {
+    console.log(tag, x);
+    return x;
+});

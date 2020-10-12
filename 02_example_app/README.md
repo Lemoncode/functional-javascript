@@ -193,7 +193,16 @@ export const Impure = {
 };
 ```
 
-#### 8. Ya estamos listos para crear una aplicación que sea capaz de mostrar una serie de imágenes descargadas por tópico de Flickr
+#### 8. Ya estamos listos para crear una aplicación que sea capaz de mostrar una serie de imágenes descargadas por tópico de Flickr. Este último paso lo vamos a realizar como un ejercicio guiado:
+
+1. Crear la url para alimentar a la función _Impure.getJSON_. 
+2. Invocar a la función anterior para analizar la estructura de datos devuelta por la API de Flickr. Recordar que la aplicación _server_ debe estar levantada y escucha en `localhost:3000`.
+3. Extraer las urls de las imágenes (la propiedad _m_ dentro de la estructura de datos)
+4. Mapear los valores de _m_ a un atributo válido de tipo _img html_ (src), para poder generar imágenes que pueda renderizar el navegador. Notar que disponemos de la función _DomManipulation.mapProperties_
+5. Crear las imágenes a partir del mapeo anterior usando _DomManipulation.createElement_
+6. Renderizar las imágenes usando _Impure.setHtml_
+
+> NOTA: Para solucionar este problema podemos comenzar de una forma menos declarativa e ir refactorizando poco a poco.
 
 Creamos el fichero _./client/app.js_
 
