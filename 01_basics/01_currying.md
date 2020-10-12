@@ -15,7 +15,7 @@ addTwo(2); // 4
 
 ### Custom Curry
 
-Lo que queremos es ser caapaces de poder hacer curry sobre las funciones, sin tener que preocuparnos por el número de argumentos que necesiten nuestras funciones recibir. Para tal fn podemos utilizar una función como la que sigue:
+Lo que queremos es ser capaces de poder hacer curry sobre las funciones, sin tener que preocuparnos por el número de argumentos que necesiten nuestras funciones recibir. Para tal fn podemos utilizar una función como la que sigue:
 
 ```js
 function curry(fn) {
@@ -62,14 +62,14 @@ censored('el gato hace miau'); // *l g*t* h*c* m***
 
 Pre cargamos una función con varios argumentos de entrada devolviendo una función que recuerda esos argumentos de entrada. 
 
-El _currying_ es fantástico a la hora de generar nuevas funciones simplemente con el paso parcial de arumentos. Además nos proporciona un mecanismo para poder aplicar funciones que sólo operan en un elemento en una colección de elementos.
+El _currying_ es fantástico a la hora de generar nuevas funciones simplemente con el paso parcial de argumentos. Además nos proporciona un mecanismo para poder aplicar funciones que sólo operan sobre un elemento en una colección de elementos.
 
 ```js
 const toUpperCase = (s) => s.toUpperCase();
 const allWordsToUpper = map(toUpperCase);
 ```
 
-Dar a una función menos argumentos de los que espera, es lo que típicamente se llama **aplicación parcial**. La aplicaión parcial nos puede ayudar a eliminar boiler plate en nustro código.
+Dar a una función menos argumentos de los que espera, es lo que típicamente se llama **aplicación parcial**. La aplicaión parcial nos puede ayudar a eliminar _boiler plate_ en nuestro código.
 
 ```js
 const toUpperCase = (s) => s.toUpperCase();
@@ -78,4 +78,4 @@ const allWordsToUpper = words => map(words, toUpperCase);
 
 Podemos ver que generar funciones que operen directamente sobre los arrays (las podríamos hacer) empieza a tener menos sentido, ya que _map_ nos proporciona la herramienta para invocar _inline_. Una función que devuelve otra función es lo que se conoce como una __HOF__ (High Order Function).
 
-Cuando hemos hablado de funciones puras, hemos dicho que toman un argumento de entrada y devuelven un argumneto de salida. El _currying_ hace exactamente esto por cada argumento de entrada devuelve una función esperndo el resto de argumentos.
+Cuando hemos hablado de funciones puras, hemos dicho que toman un argumento de entrada y devuelven un argumneto de salida. El _currying_ hace exactamente esto por cada argumento de entrada devuelve una función esperando el resto de argumentos.
