@@ -1,19 +1,6 @@
 ## Select a subset of Properties from a Collectionof Objects
 
 ```js
-const R = require('ramda');
-const pets = [
-    { name: 'Jeans', price: 80, category: 'cat' },
-    { name: 'Hoodie', price: 60, category: 'cat' },
-    { name: 'Jacket', price: 120, category: 'cat' },
-    { name: 'JackPot', price: 35, category: 'dog' },
-    { name: 'Bubbles', price: 649, category: 'fish' },
-    { name: 'Slithery', price: 100, category: 'reptile' },
-];
-
-const result = pets;
-
-console.log(result);
 
 ```
 

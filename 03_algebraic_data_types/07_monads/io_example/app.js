@@ -42,8 +42,6 @@ const main = () => {
 
 document.addEventListener('DOMContentLoaded', () => {
     setPreferences();
-    
-
     setTimeout(() => {
         main();
     }, 1_000);

@@ -73,3 +73,11 @@ const predicate = R.where({
 });
 
 ```
+
+```js
+const predicate =  R.where({
+    category: R.equals('cat'),
+    stock: R.gt(R.__, 10) && R.lt(R.__, 22),
+});
+
+```

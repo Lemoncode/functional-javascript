@@ -66,6 +66,11 @@ console.log('t', t);
 Por un lado está bien tener los efectos 'empaquetados' y listos para su consumo, por otro lado se hace raro este anidamiento. Veamos otro ejemplo más:
 
 ```js
+const user = {
+    name: 'Joe',
+    addresses: [{ street: { name: 'Mulburry', number: 8402 }, postcode: 'WC2N' }],
+};
+
 // safeProp :: Key -> { Key: a } -> Maybe a
 const safeProp = curry((x, obj) => Maybe.of(obj[x]));
 
@@ -115,7 +120,7 @@ Si tenemos dos capas del mismo tipo las podemos unificar usando `join`. Esto es 
 
 > Los Monads son pointed functors que pueden ser aplanados
 
-Todo functor que defina `join`, que tenga un métod `of` y obedezca una serie de leyes es un monad. 
+Todo functor que defina `join`, que tenga un método `of` y obedezca una serie de leyes es un monad. 
 
 ```js
 Maybe.prototype.join = function join() {
@@ -259,7 +264,7 @@ const applyPreferences = compose(
 
 Una propiedad muy interesante de `chain` es que anida los efectos, podemos capturalos y ejecutarlos secuencialmente.
 
-> Para los siguientes ejemplos hace falta el fichero de _helpers_
+> Para los siguientes ejemplos hace falta el fichero de [helpers](03_algebraic_data_types\07_monads\playground\helpers.js)
 > Implementar getJSON para ver como se integra Task
 
 ```js
@@ -281,7 +286,7 @@ Maybe.of(null)
 
 ## Notas
 
-El estilo de programación con contenedores puede confundir a veces. Necesitamos saber como de profundo está enterraso neustro dato, y aplicar `map` o `chain` de manera consecuente. Podemos siempre mejorar el debugging implementando `inspect`. Podemos hacer una comparativa, entre este estilo de programación y un estilo más iperativo
+El estilo de programación con contenedores puede confundir a veces. Necesitamos saber como de profundo está enterrado nuestro dato, y aplicar `map` o `chain` de manera consecuente. Podemos siempre mejorar el debugging implementando `inspect`. Podemos hacer una comparativa, entre este estilo de programación y un estilo más iperativo
 
 
 ```js

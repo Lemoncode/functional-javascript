@@ -86,7 +86,7 @@ Also instead of using `ifElse` we can use `when`
 
 ```diff
 -const adjustPrice = R.ifElse(
-const adjustPrice = R.when(
++const adjustPrice = R.when(
     R.propEq('category', 'cat'),
 +   R.over(pLens, applyDiscount(50)),
 -   R.identity

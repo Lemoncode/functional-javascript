@@ -145,7 +145,7 @@ const product = {
 };
 
 -const getProps = R.pickBy(val => Number(val));
-+const getProps = R.pickBy((val, key) => R.contains('shipping', key));
++const getProps = R.pickBy((val, key) => R.includes('shipping', key));
 const result = getProps(product);
 console.log(result);
 ```
