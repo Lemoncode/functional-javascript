@@ -1,6 +1,6 @@
 ## Hindler-Milner
 
-Los tipos son el meta dato que hace que podamos utilizar los mismos mapas mentales en distintos lenhuajes funcionales. En su mayor parte se escriben en un sistema que recibe el nombre de **Hindler-Milner**
+Los tipos son el meta dato que hace que podamos utilizar los mismos mapas mentales en distintos lenguajes funcionales. En su mayor parte se escriben en un sistema que recibe el nombre de **Hindler-Milner**
 
 ## Ejemplos
 
@@ -106,7 +106,7 @@ compose(map(f), filter(compose(p, f))) === compose(filter(p), map(f));
 
 La primera dice que si tomamos el primer elemento de un array, depués ejecutamos una función _f_ sobre el elemento, eso es equivalente a, que hagamos _map(f)_ sobre todos los elemnetos y después nos quedemos con el primer elemento del array.
 
-La segunda es similar, nos dice que si componemos _f_ y _p_ para comprobar que elementos son filtrados y después aplicamos _f_ via _map_ (filter no va a transformar los elementos) siempre va a ser equivalente a mapear con _f_ y después filtrar el reseultado usando el predicad _p_.
+La segunda es similar, nos dice que si componemos _f_ y _p_ para comprobar que elementos son filtrados y después aplicamos _f_ via _map_ (filter no va a transformar los elementos) siempre va a ser equivalente a mapear con _f_ y después filtrar el resultado usando el predicado _p_.
 
 ### Restricciones
 

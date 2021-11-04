@@ -152,7 +152,7 @@ initials(name); // J. S. Z.
 const { map, compose, head, toUpperCase, split, intercalate } = require('../utils/operators');
 
 // ## Ejercicio 1. Jugando con Point Free. 
-const name = 'jaime salas zancada'
+const name = 'jaime salas zancada';
 
 const splitted = split(' ');
 console.log(splitted(name)); // ['jaime', 'salas', 'zancada'];

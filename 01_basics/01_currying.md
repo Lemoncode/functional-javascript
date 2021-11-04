@@ -15,7 +15,7 @@ addTwo(2); // 4
 
 ### Custom Curry
 
-Lo que queremos es ser capaces de poder hacer curry sobre las funciones, sin tener que preocuparnos por el número de argumentos que necesiten nuestras funciones recibir. Para tal fn podemos utilizar una función como la que sigue:
+Lo que queremos es ser capaces de poder hacer curry sobre las funciones, sin tener que preocuparnos por el número de argumentos que necesiten nuestras funciones recibir. Para tal fin podemos utilizar una función como la que sigue:
 
 ```js
 function curry(fn) {
