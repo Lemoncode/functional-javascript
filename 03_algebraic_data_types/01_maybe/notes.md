@@ -161,4 +161,4 @@ getTwenty({ balance: 10 });
 // No money
 ```
 
-Notar que la  función _maybe_ es el equivalente a un _if/else_. _Maybe_ separa en dos tipos: uno para `algo` y el otro para `nada`. Esto nos permite obedecer la parametricidad en _map_ así valores como `null` o `undefined` pueden seguier siendo mapeados y la cualificación total del valor en un unctor será respetada.  
+Notar que la  función _maybe_ es el equivalente a un _if/else_. _Maybe_ separa en dos tipos: uno para `algo` y el otro para `nada`. Esto nos permite obedecer la parametricidad en _map_ así valores como `null` o `undefined` pueden seguier siendo mapeados y la cualificación total del valor en un Functor será respetada.  

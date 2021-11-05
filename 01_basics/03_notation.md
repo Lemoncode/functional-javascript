@@ -92,7 +92,7 @@ Cuando introducimos los tipos como variables, emerge una propiedad llamada [para
 // reverse :: [a] -> [a]
 ```
 
-¿Qué es lo que hacen las funciones anteriormente descritas? Lo que podemos decir es que en el primer caso _head_ recibe un array de un tipo y devuelve un elemento del mismo tipo, y que _reverse_ recive un array de un tipo determinado y devuelve un array del mismo tipo, más allá de eso simplemente podemos expecular. Lo realmente interesante a notar aquí es el carácter polimórfico de ambas funciones.
+¿Qué es lo que hacen las funciones anteriormente descritas? Lo que podemos decir es que en el primer caso _head_ recibe un array de un tipo y devuelve un elemento del mismo tipo, y que _reverse_ recive un array de un tipo determinado y devuelve un array del mismo tipo, más allá de eso simplemente podemos especular. Lo realmente interesante a notar aquí es el carácter polimórfico de ambas funciones.
 
 Este tipo de razonamiento nos lleva a poder trabajar con ciertos teoremas, [Wadler's paper on the subject](https://ttic.uchicago.edu/~dreyer/course/papers/wadler.pdf).
 

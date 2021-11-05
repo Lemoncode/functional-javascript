@@ -271,7 +271,7 @@ dasherize('The    world is a    vampire'); // 'the-world-is-a-vampire'
 
 ## Ejercicios
 
-En cada uno de los siguientes ejercicios, consideraremos los objectos Book de la siguiente forma:
+En cada uno de los siguientes ejercicios, consideraremos los objetos `Book` de la siguiente forma:
 
 ```js
 {

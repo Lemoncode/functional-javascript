@@ -1,6 +1,6 @@
 ## Introducción
 
-Hemos escrito programas que pasan los datos a través de una serie de funciones puras. Son declaraciones epecíficas de comportamineto. ¿Per que hay del control de flujo, maneo de errores, acciones asíncronas, el estado y los side effects?
+Hemos escrito programas que pasan los datos a través de una serie de funciones puras. Son declaraciones epecíficas de comportamineto. ¿Pero qué hay del control de flujo, manejo de errores, acciones asíncronas, el estado y los side effects?
 
 Vamos a contruir un contenedor. Un objeto plano desde el punto de vista de OO.
 
@@ -32,7 +32,7 @@ Container.of(Container.of({ name: 'guarrito' }));
 
 * La propiedad __$value__ no puede ser de un tipo específico, ya que nuestro contenedor dejaría de ser útil.
 
-* Una vez que el data entra en __Container__  permanece ahí. Podemos recuperarlo usando __.$vlaue__
+* Una vez que el data entra en __Container__  permanece ahí. Podemos recuperarlo usando __.$value__
 
 ## Functor
 
