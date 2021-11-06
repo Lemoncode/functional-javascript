@@ -107,7 +107,7 @@ futureAge({ birthDate: 'Not valid date' });
 
 En el ejercicio anterior estamos ramificando el flujo de nuestro programa dependiendo de la validez de la fecha de nacimiento.
 
-Notar que la función _incAge_ es totalmente ignorante de que es usada por un functor. En el momento que invocamos una función envuelta en _map_ se transfrma de una función __no-functo__ a una función __functor__. A esto es lo que le llamamos _lifting_. Las funciones tienden a funcionar mejor con tipos de datos normales antes que con los  tipos contenedores, en estos casos usamos _lifting_, para seguir trabajando con las mismas funciones.
+Notar que la función _incAge_ es totalmente ignorante de que es usada por un functor. En el momento que invocamos una función envuelta en _map_ se transfrma de una función __no-functor__ a una función __functor__. A esto es lo que le llamamos _lifting_. Las funciones tienden a funcionar mejor con tipos de datos normales antes que con los  tipos contenedores, en estos casos usamos _lifting_, para seguir trabajando con las mismas funciones.
 
 _Either_ es más que un contenedor en la teoría de la caregoría, se le conoce como co-producto, es también el tipo de suma canónica (unión de conjuntos disjuntos), una posible refactorización del código anterior sería:
 

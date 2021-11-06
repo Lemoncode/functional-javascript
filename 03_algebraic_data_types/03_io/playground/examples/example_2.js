@@ -6,7 +6,7 @@ export function example2() {
     // url :: IO String
     const url = new IO(() => 'https://localhost:3000/?searchTerm=wafflehouse&content=red');
 
-    // toPairs :: String -> [String]
+    // toPairs :: String -> [[String]]
     const toPairs = compose(map(split('=')), split('&'));
 
     // params :: String -> [[String]]

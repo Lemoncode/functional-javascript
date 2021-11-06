@@ -171,9 +171,9 @@ document.addEventListener('DOMContentLoaded', () => {
 
 ```
 
-Nuestro código mantiene sus manos limpias al envolver _url_ en un _IO_ y pasando el contenedor. Notar además que hemos apilado nuestros contenedore, no pasa nad a por tener _IO(Maybe[x])_, en realidad aquí tenemos una profundidad de 3, ya que _Array_ es mapeable.
+Nuestro código mantiene sus manos limpias al envolver _url_ en un _IO_ y pasando el contenedor. Notar además que hemos apilado nuestros contenedores, no pasa nada por tener _IO(Maybe[x])_, en realidad aquí tenemos una profundidad de 3, ya que _Array_ es mapeable.
 
-Por último _$value_ en _IO_ no es realmente su valor, es la función que debemos ejecutar para obtener nuestr side effect, es más a decuado si hacemos una pequeña refactorización en este clase:
+Por último _$value_ en _IO_ no es realmente su valor, es la función que debemos ejecutar para obtener nuestro `side effect`, es más adecuado si hacemos una pequeña refactorización en este clase:
 
 ```js
 class IO {
