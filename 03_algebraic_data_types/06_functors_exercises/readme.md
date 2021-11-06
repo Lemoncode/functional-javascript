@@ -1,19 +1,19 @@
-# Exercises
+# Ejercicios
 
-## 1. Use `add` and `map` to a make a function that increments a value iside a functor
+## 1. Usar `add` y `map` para hacer una función que incremente un valor dentro de un `Functor`
 
 ```js
 // incrF :: Functor f => f Int -> f Int
 const incrF = undefined;
 ```
 
-## 2. Given the following user object
+## 2. Dado el siguiente objeto `user`:
 
 ```js
-const user = { id; 2, name; 'Albert', active: true };
+const user = { id: 2, name: 'Albert', active: true };
 ```
 
-Use `safeProp` and `head` to find the first initial of the user.
+Usar `safeProp` y `head`, para encontrar la primera inicial del usuario.
 
 ```js
 // intial :: User -> Maybe String
@@ -21,6 +21,8 @@ const initial = undefined;
 ```
 
 ## 3. Given the following helper functions
+## 3. Dadas las siguientes  helper functions:
+
 
 ```js
 // showWelcome :: User -> String
@@ -35,13 +37,15 @@ const checkActive = function checkActive(user) {
 ```
 
 Write a function that uses `checkActive` and `showWelcome` to grant access or return an error.
+Escribir una función que use `checkActive` y `showWelcome` para otorgar acceso o devolver un error.
 
 ```js
 // eitherWelcome :: User -> Either String String
 const eitherWelcome = undefined;
 ```
 
-## 4.  We now consider the following functions:
+## 4. We now consider the following functions:
+## 4. Consideremos las siguientes funciones:
 
 ```js
 // validateUser :: (User -> Either String ()) -> User -> Either String User

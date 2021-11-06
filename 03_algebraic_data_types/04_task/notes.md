@@ -2,7 +2,7 @@
 
 > NOTA: Para usar Task de una manera más robusta, utilizar: https://github.com/folktale/data.task
 
-Lo que queremos es un contenedor com _IO_, que nos permita hacer lo mismo que con los side effects pero desde un punto de vista del código asíncrono, para tal fin vamos a utilizar _Task_
+Lo que queremos es un contenedor como _IO_, que nos permita hacer lo mismo que con los `side effects` pero desde un punto de vista del código asíncrono, para tal fin vamos a utilizar _Task_
 
 ```js
 class Task {
@@ -11,7 +11,7 @@ class Task {
     }
 
     static rejected(x) {
-        return new Task((reject, _) => reject(x))
+        return new Task((reject, _) => reject(x));
     }
 
     static of(x) {
@@ -131,7 +131,7 @@ Un gran poder conlleva una gran repsonsabilidad, ha llegado el momento de usar n
 }
 ```
 
-Para ello crear una función que lea  el fichero, devolviendo una _Task_
+Para ello crear una función que lea el fichero, devolviendo una _Task_
 
 ### 2. Connectar a la base de datos usando Postgres.connect
 

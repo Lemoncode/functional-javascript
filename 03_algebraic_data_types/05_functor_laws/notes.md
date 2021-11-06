@@ -44,9 +44,9 @@ compLaw2(Container.of('Goodbye'));
 // Container { '$value': ' world cruel Goodbye' }
 ```
 
-En la teoría de la categoría, los functors toman los objetos y morfismos, y los mapean a una categoría diferente. Por definición, esta nueva categoría debe tener una identidad y la habilidad de componer morfismos.
+En la teoría de la categoría, los `functors` toman los objetos y morfismos, y los mapean a una categoría diferente. Por definición, esta nueva categoría debe tener una **identidad** y la **habilidad de componer morfismos**.
 
-Podemos pensar en una categoría como si fuera una red de objetos con morfismos que los conectan entre si. Así que un functor mapearía de una categoría a otra sin romper la red. Si un objecto esya en la categoría _C_, cando lo mapeamos a la categoría _D_ con el _functor F_, nos referimos a ese objeto como _F a_
+Podemos pensar en una categoría como si fuera una red de objetos con morfismos que los conectan entre si. Así que un functor mapearía de una categoría a otra sin romper la red. Si un objecto está en la categoría _C_, cuando lo mapeamos a la categoría _D_ con el _functor F_, nos referimos a ese objeto como _F a_
 
 > Añadir diagrama
 
