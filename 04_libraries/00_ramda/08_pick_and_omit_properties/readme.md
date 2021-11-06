@@ -13,7 +13,7 @@ const result = '';
 console.log(result);
 ```
 
-Let's say that result became a new object but just with the name and price properies
+Let's say that result became a new object but just with the name and price properties
 
 ```diff
 const R = require('ramda');

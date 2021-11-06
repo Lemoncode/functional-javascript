@@ -14,8 +14,6 @@ Promise.all([getName(), getHobbies()]).then(console.log);
 
 ```
 
-> Continue on: https://egghead.io/lessons/ramda-convert-a-promise-all-result-to-an-object-with-ramda-s-zip-and-zipobj
-
 What we want is to get an object with a property name and its hobbies
 
 ```diff

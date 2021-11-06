@@ -47,7 +47,7 @@ console.log(result);
 
 ## Exercise
 
-Create and array that calculates the bits for a given entry on KBs.
+Create an array that calculates the bits for a given entry on KBs.
 
 ```js
 const R = require('ramda');

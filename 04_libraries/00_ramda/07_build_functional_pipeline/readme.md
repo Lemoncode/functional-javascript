@@ -12,7 +12,7 @@ const teams = [
 
 ```
 
-We want to create a function that will take the top scoring tema  and return only the name.
+We want to create a function that will take the top scoring team and return only the name.
 
 ```js
 const R = require('ramda');

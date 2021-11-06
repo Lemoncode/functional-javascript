@@ -11,7 +11,7 @@ const result = getName(person);
 console.log(result); // Indiana Jones
 ```
 
-Let's introduc `pipe` here:
+Let's introduce `pipe` here:
 
 ```diff
 const R = require('ramda');

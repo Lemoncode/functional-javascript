@@ -3,7 +3,6 @@
 ```js
 const R = require('ramda');
 
-
 const acctDept = {
     name: 'Accounts Payable',
     location: '14th Floor',
@@ -12,7 +11,7 @@ const acctDept = {
             fName: 'Bill',
             lName: 'Joel',
             title: 'director of something',
-            salry: 50000
+            salary: 50000
         }
     }
 };

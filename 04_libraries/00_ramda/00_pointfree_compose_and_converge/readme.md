@@ -31,7 +31,7 @@ const getUpdatedPet = (pet) => {
 };
 ```
 
-This is not bad, but we cna improve this using `compose`
+This is not bad, but we can improve this using `compose`
 
 ```diff
 const getUpdatedPet = (pet) => {

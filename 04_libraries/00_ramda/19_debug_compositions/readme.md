@@ -65,7 +65,7 @@ const parseQs = compose(
 { page: '3', pageSize: '30', total: '120' }
 ```
 
-We can create a function that take cares of logging
+We can create a function that take care of logging
 
 ```diff
 +const log = tap(console.log);

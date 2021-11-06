@@ -1,4 +1,4 @@
-# Declaratively Mapa Data Transformaitons to Object Properties
+# Declaratively Map Data Transformaitons to Object Properties
 
 
 ```js
@@ -26,10 +26,10 @@ console.log(result);
 If we run this we have
 
 ```js
-{ name: 'surprise', price: 100, details: { shippingInfo: { weight: 7 } } }
+{ name: 'SURPRISE', price: 100, details: { shippingInfo: { weight: 7 } } }
 ```
 
-If we have to do this for a lot of properties will get messy soon, Ramda provides a functions to avoid these kind of situations:
+If we have to do this for a lot of properties will get messy soon, Ramda provides a function to avoid these kind of situations:
 
 ```diff
 const R = require('ramda');

@@ -78,7 +78,7 @@ We obtain
 
 This demonstrate, that all these functions treat the data as `immutable`. 
 
-Ok, now let's operate over our `lens` and make that firstName to be upper case
+Ok, now let's operate over our `lens` and make that `firstName` to be upper case
 
 ```diff
 const R = require('ramda');
