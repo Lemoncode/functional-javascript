@@ -1,4 +1,4 @@
-export const ManegerDOM = (selector) => {
+export const ManagerDOM = (selector) => {
     const element = document.getElementById(selector);
     return {
         css(props) {

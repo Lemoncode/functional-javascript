@@ -1,4 +1,4 @@
-import { ManegerDOM, setOnLocalStorage } from './helpers';
+import { ManagerDOM, setOnLocalStorage } from './helpers';
 import { IO } from './utils/io';
 import { curry, compose, map, join } from './utils/operators';
 
@@ -22,7 +22,7 @@ const main = () => {
 
     // setStyle :: Selector -> CSSProps -> IO DOM
     const setStyle = curry((sel, props) => new IO(() => {
-        ManegerDOM(sel).css(props);
+        ManagerDOM(sel).css(props);
     }));
 
     // getItem :: String -> IO String
@@ -42,7 +42,6 @@ const main = () => {
 
 document.addEventListener('DOMContentLoaded', () => {
     setPreferences();
-    
 
     setTimeout(() => {
         main();
