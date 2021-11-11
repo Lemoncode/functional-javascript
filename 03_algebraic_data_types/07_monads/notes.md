@@ -281,7 +281,7 @@ Maybe.of(null)
 
 ## Notas
 
-El estilo de programación con contenedores puede confundir a veces. Necesitamos saber como de profundo está enterrado nuestro dato, y aplicar `map` o `chain` de manera consecuente. Podemos siempre mejorar el debugging implementando `inspect`. Podemos hacer una comparativa, entre este estilo de programación y un estilo más iperativo
+El estilo de programación con contenedores puede confundir a veces. Necesitamos saber como de profundo está enterrado nuestro dato, y aplicar `map` o `chain` de manera consecuente. Podemos siempre mejorar el debugging implementando `inspect`. Podemos hacer una comparativa, entre este estilo de programación y un estilo más imperativo
 
 
 ```js

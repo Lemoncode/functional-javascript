@@ -1,6 +1,6 @@
-# Exercises
+# Ejercicios
 
-## 1. Considering a User object as follow:
+## 1. Consideremos el objecto User:
 
 ```js
 const user = {
@@ -15,14 +15,14 @@ const user = {
 };
 ```
 
-Use `safeProp` and `map/join` or `chain` to safely get the stree name when given a user
+Usar `safeProp` y `map/join` o `chain` para tomar `street name` de forma segura, dado un `user`
 
 ```js
 // getStreetName :: User -> Maybe String
 const getStreetName = undefined;
 ```
 
-## 2. We now consider the following items:
+## 2. Consideremos los siguientes elementos:
 
 ```js
 // getFile :: IO String
@@ -32,9 +32,12 @@ const getFile = IO.of('/home/mostly-adequate/ch09.md');
 const pureLog = str => new IO(() => console.log(str));
 ```
 
-Use `getFile` to get the filepath, remove the directory and keep only the basename, then purely log it. Hint: you may want to use `split` and `last` to obtain the basename from a filepath.
+Usar `getFile` para tomar el `filepath`, quitar el directorio y mantener sólo el nombre del fichero, y hacer `log` de manera pura. 
+
+> Pista: usaremos `split` y  `last` paar obtener el nombre del fichero del `filepath`.
 
 ## 3. For this exercise, we consider helpers with the following signatures:
+## 3. Para este ejercicio, consiremos los `helpers` con las siguientes firmas:
 
 ```js
 // validateEmail :: Email -> Either String Email
@@ -43,9 +46,10 @@ Use `getFile` to get the filepath, remove the directory and keep only the basena
 ```
 
 Use `validateEmail`, `addToMailingList` and `emailBlast` to create a function which adds a new email to the mailing list if valid, and then notify the hole list
+Use `validateEmail`, `addToMailingList` and `emailBlast` to create a function which adds a new email to the mailing list if valid, and then notify the hole list
 
 ```js
-// joinMailingList :: Email -> Either Strng (IO ())
+// joinMailingList :: Email -> Either String (IO ())
 const joinMailingList = undefined;
 ```
 

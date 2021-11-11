@@ -127,7 +127,7 @@ getTwenty({ balance: 10 });
 
 ## Liberando el valor
 
-En un punto determinado el data debe abondanar nustros contenedoere, devolver un JSON, imprimir un determiado valor en pantalla... Un error común es sacar el valor directamente de _Maybe_, pero esto sería un error, ya que hay que recordar que _Maybe_ puede contener o no valor. 
+En un punto determinado el data debe abondanar nuestros contenedoere, devolver un JSON, imprimir un determiado valor en pantalla... Un error común es sacar el valor directamente de _Maybe_, pero esto sería un error, ya que hay que recordar que _Maybe_ puede contener o no valor. 
 
 Para tal fin podemos implementar:
 
